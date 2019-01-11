@@ -40,3 +40,18 @@ zplug load
 prompt_dir() {
   prompt_segment blue black "%$(( $COLUMNS - 61 ))<...<%3~%<<"
 }
+## abbreviations
+abbrev-alias -i
+abbrev-alias -g gp="git push"
+abbrev-alias -g gs="git status"
+abbrev-alias -g gpa="git pull --all"
+abbrev-alias -g gacm="git add -A; git commit -m \"\""
+abbrev-alias -g gpa="git pull --all"
+
+# Ros
+alias sr='source ~/development/workspaces/ri-ws/devel/setup.zsh'
+alias kg="kill \$(ps aux| grep -E 'gazebo|simulation.launch' | grep -v grep | awk '{print \$2}')"
+
+#function kg(){
+#   kill $(ps aux| grep -E 'gazebo|simulation.launch' | grep -v grep |awk '{print $2}')
+#}

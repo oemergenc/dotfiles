@@ -15,7 +15,7 @@ set shiftwidth=4
 
 set encoding=utf-8
 
-" Custom Bindings
+" Custom Bindings for move line up/down
 nnoremap <A-j> :m .+1<CR>==
 nnoremap <A-k> :m .-2<CR>==
 inoremap <A-j> <Esc>:m .+1<CR>==gi
