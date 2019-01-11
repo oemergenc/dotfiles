@@ -3,6 +3,7 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.zplug/repos/robbyrussell/oh-my-zsh/
+ZSH_THEME=agnoster
 
 source /opt/ros/melodic/setup.zsh
 fpath=(~/.zsh/completion $fpath)
@@ -23,23 +24,34 @@ zplug "momo-lab/zsh-abbrev-alias"
 
 source $ZSH/oh-my-zsh.sh
 
-## Install packages that have not been installed yet
-#if ! zplug check --verbose; then
-#    printf "Install? [y/N]: "
-#    if read -q; then
-#        echo; zplug install
-#    else
-#        echo
-#    fi
-#fi
+# Install packages that have not been installed yet
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    else
+        echo
+    fi
+fi
 
 zplug load 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 prompt_dir() {
-  prompt_segment blue black "%$(( $COLUMNS - 61 ))<...<%3~%<<"
+    prompt_segment blue black "%$(( $COLUMNS - 61 ))<...<%3~%<<"
 }
+
+prompt_end() {                                        
+  if [[ -n $CURRENT_BG ]]; then
+    echo -n " %{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR"
+  else
+    echo -n "%{%k%}"
+  fi
+  echo -n "%{%f%}
+$SEGMENT_SEPARATOR"
+  CURRENT_BG=''
+}
+
 ## abbreviations
 abbrev-alias -i
 abbrev-alias -g gp="git push"
@@ -49,7 +61,8 @@ abbrev-alias -g gacm="git add -A; git commit -m \"\""
 abbrev-alias -g gpa="git pull --all"
 
 # Ros
-alias sr='source ~/development/workspaces/ri-ws/devel/setup.zsh'
+export RI_ROS_WS=~/development/workspaces/ri-ws
+alias sr='source $RI_ROS_WS/devel/setup.zsh'
 alias kg="kill \$(ps aux| grep -E 'gazebo|simulation.launch' | grep -v grep | awk '{print \$2}')"
 
 #function kg(){
