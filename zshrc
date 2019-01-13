@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.zplug/repos/robbyrussell/oh-my-zsh/
+export ZSH=$HOME/.zplug/repos/robbyrussell/oh-my-zsh
 ZSH_THEME=agnoster
 
 source /opt/ros/melodic/setup.zsh
@@ -14,8 +14,9 @@ source ~/.zplug/init.zsh
 # Zplug plugins
 zplug "zplug/zplug"
 zplug "zsh-users/zsh-completions"
-zplug "zsh-users/zsh-syntax-highlighting"
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-history-substring-search"
+zplug "$ZSH/custom/plugins/zsh-autosuggestions", from:local
 zplug "rimraf/k"
 zplug "b4b4r07/enhancd", use:init.sh
 zplug 'plugins/git', from:oh-my-zsh
