@@ -64,3 +64,7 @@ abbrev-alias -g gpa="git pull --all"
 export RI_ROS_WS=~/development/workspaces/ri-ws
 abbrev-alias -g sr='source $RI_ROS_WS/devel/setup.zsh'
 abbrev-alias -g kgsim="kill \$(ps aux| grep -E 'gazebo|simulation.launch' | grep -v grep | awk '{print \$2}')"
+
+# util functions
+# copy to clipbaord
+alias pbcopy='xclip -selection clipboard'
