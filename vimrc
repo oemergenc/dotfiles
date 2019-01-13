@@ -8,11 +8,10 @@ set showmatch             " highlight matching [{()}]
 set incsearch             " search as characters are entered
 set hlsearch              " highlight matches
 set clipboard=unnamedplus " Copy default to system clipboard
-
-set smartindent
-set tabstop=4
-set expandtab
-set shiftwidth=4
+set smartindent           " 
+set tabstop=4             " An indentation every four columns
+set expandtab             " Tabs are spaces, not tabs
+set shiftwidth=4          " Use indents of 4 spaces
 set encoding=utf-8
 
 
