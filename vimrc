@@ -13,7 +13,7 @@ set tabstop=4             " An indentation every four columns
 set expandtab             " Tabs are spaces, not tabs
 set shiftwidth=4          " Use indents of 4 spaces
 set encoding=utf-8
-
+set noshowmode            " Do not show native vim mode line at the bottom
 
 " Custom Bindings for move line up/down
 nnoremap <A-j> :m .+1<CR>==
@@ -32,3 +32,16 @@ while c <= 'z'
 endw
 set timeout ttimeoutlen=50
 
+" plugins
+" auto install vim-plug manager
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dir
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $HOME/.vimrc
+endif
+
+" install plugins
+call plug#begin('~/.vim/plugged')
+" Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline'
+call plug#end()
