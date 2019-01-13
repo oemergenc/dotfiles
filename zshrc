@@ -5,7 +5,6 @@
 export ZSH=$HOME/.zplug/repos/robbyrussell/oh-my-zsh
 ZSH_THEME=agnoster
 
-source /opt/ros/melodic/setup.zsh
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
 
@@ -16,7 +15,7 @@ zplug "zplug/zplug"
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-history-substring-search"
-zplug "$ZSH/custom/plugins/zsh-autosuggestions", from:local
+zplug "$ZSH/custom/plugins/zsh-autosuggestions", from:local, use:zsh-autosuggestions.zsh
 zplug "rimraf/k"
 zplug "b4b4r07/enhancd", use:init.sh
 zplug 'plugins/git', from:oh-my-zsh
@@ -62,6 +61,7 @@ abbrev-alias -g gacm="git add -A; git commit -m \"\""
 abbrev-alias -g gpa="git pull --all"
 
 # Ros
+source /opt/ros/melodic/setup.zsh
 export RI_ROS_WS=~/development/workspaces/ri-ws
 abbrev-alias -g sr='source $RI_ROS_WS/devel/setup.zsh'
 abbrev-alias -g kgsim="kill \$(ps aux| grep -E 'gazebo|simulation.launch' | grep -v grep | awk '{print \$2}')"
