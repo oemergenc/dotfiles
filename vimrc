@@ -1,19 +1,20 @@
 syntax enable
 colorscheme monokai
-set number              " show line numbers
-set cursorline          " highlight current line
-set showcmd             " show command in bottom bar
-set wildmenu            " visual autocomplete for command menu
-set showmatch           " highlight matching [{()}]
-set incsearch           " search as characters are entered
-set hlsearch            " highlight matches
+set number                " show line numbers
+set cursorline            " highlight current line
+set showcmd               " show command in bottom bar
+set wildmenu              " visual autocomplete for command menu
+set showmatch             " highlight matching [{()}]
+set incsearch             " search as characters are entered
+set hlsearch              " highlight matches
+set clipboard=unnamedplus " Copy default to system clipboard
 
 set smartindent
 set tabstop=4
 set expandtab
 set shiftwidth=4
-
 set encoding=utf-8
+
 
 " Custom Bindings for move line up/down
 nnoremap <A-j> :m .+1<CR>==
