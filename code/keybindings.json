@@ -1,0 +1,27 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+    {
+        "key": "ctrl+q -",
+        "command": "workbench.action.splitEditor"
+    },
+    {
+        "key": "ctrl+q shift+-",
+        "command": "workbench.action.splitEditorOrthogonal"
+    },
+    {
+        "key": "alt+left",
+        "command": "workbench.action.navigateLeft"
+    },
+    {
+        "key": "alt+right",
+        "command": "workbench.action.navigateRight"
+    },
+    {
+        "key": "alt+up",
+        "command": "workbench.action.navigateUp"
+    },
+    {
+        "key": "alt-down",
+        "command": "workbench.action.navigateDown"
+    }
+]
