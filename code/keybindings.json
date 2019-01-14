@@ -1,11 +1,11 @@
 // Place your key bindings in this file to override the defaultsauto[]
 [
     {
-        "key": "ctrl+q -",
+        "key": "ctrl+q shift+-",
         "command": "workbench.action.splitEditor"
     },
     {
-        "key": "ctrl+q shift+-",
+        "key": "ctrl+q -",
         "command": "workbench.action.splitEditorOrthogonal"
     },
     {

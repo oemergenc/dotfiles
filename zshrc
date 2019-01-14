@@ -70,6 +70,7 @@ abbrev-alias -g gs="git status"
 abbrev-alias -g gpa="git pull --all"
 abbrev-alias -g gacm="git add -A; git commit -m \"\""
 abbrev-alias -g gpa="git pull --all"
+abbrev-alias -g uzshrc="source ~/.zshrc"
 
 # Ros
 source /opt/ros/melodic/setup.zsh
@@ -80,3 +81,14 @@ abbrev-alias -g kgsim="kill \$(ps aux| grep -E 'gazebo|simulation.launch' | grep
 # util functions
 # copy to clipbaord
 alias pbcopy='xclip -selection clipboard'
+
+function brws(){
+    if [ ! -f ./.catkin_workspace ]; then
+        ./catkin_make
+    fi
+}
+
+
+
+
+
