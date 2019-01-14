@@ -52,6 +52,17 @@ $SEGMENT_SEPARATOR"
   CURRENT_BG=''
 }
 
+## history options
+
+HISTFILE="$HOME/.zhistory"
+HISTSIZE=10000000
+SAVEHIST=10000000
+
+unsetopt histverify              # Do not verify expansion cmds
+setopt BANG_HIST                 # Treat the '!' character specially during expansion.
+setopt INC_APPEND_HISTORY        # Write to the history file immediately, not when the shell exits.
+setopt SHARE_HISTORY             # Share history between all sessions.
+
 ## abbreviations
 abbrev-alias -i
 abbrev-alias -g gp="git push"
