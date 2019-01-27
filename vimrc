@@ -7,13 +7,30 @@ set wildmenu              " visual autocomplete for command menu
 set showmatch             " highlight matching [{()}]
 set incsearch             " search as characters are entered
 set hlsearch              " highlight matches
-set clipboard=unnamedplus " Copy default to system clipboard
 set smartindent           " 
 set tabstop=4             " An indentation every four columns
 set expandtab             " Tabs are spaces, not tabs
 set shiftwidth=4          " Use indents of 4 spaces
 set encoding=utf-8
 set noshowmode            " Do not show native vim mode line at the bottom
+" Use case insensitive search, except when using capital letters
+set ignorecase
+set smartcase
+
+" Highlight searches (use <C-L> to temporarily turn off highlighting; see the
+" mapping of <C-L> below)
+set hlsearch
+hi Search ctermbg=LightYellow
+hi Search ctermfg=Red 
+
+" yank to clipboard with fix for mac os x
+if has("clipboard")
+  set clipboard=unnamed " copy to the system clipboard
+
+  if has("unnamedplus") " X11 support
+    set clipboard+=unnamedplus
+  endif
+endif
 
 " Custom Bindings for move line up/down
 nnoremap <A-j> :m .+1<CR>==
@@ -62,3 +79,19 @@ let g:EasyMotion_smartcase = 1
 " JK motions: Line motions
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
+
+" Map <C-L> (redraw screen) to also turn off search highlighting until the
+" next search
+nnoremap <C-L> :nohl<CR><C-L>
+ 
+" Map <C-K> to highlight the word under the cursor
+nnoremap <C-K> :call HighlightNearCursor()<CR>
+function HighlightNearCursor()
+  if !exists("s:highlightcursor")
+    match Todo /\k*\%#\k*/
+    let s:highlightcursor=1
+  else
+    match None
+    unlet s:highlightcursor
+  endif
+endfunction
