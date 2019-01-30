@@ -73,22 +73,13 @@ abbrev-alias -g gpa="git pull --all"
 abbrev-alias -g uzshrc="source ~/.zshrc"
 
 # Ros
-source /opt/ros/melodic/setup.zsh
 export RI_ROS_WS=~/development/workspaces/ri-ws
-abbrev-alias -g sr='source $RI_ROS_WS/devel/setup.zsh'
-abbrev-alias -g kgsim="kill \$(ps aux| grep -E 'gazebo|simulation.launch' | grep -v grep | awk '{print \$2}')"
+if [ -f $HOME/development/workspaces/ros/ri-robotics-shell/ri_robotics_shell.sh ]; then
+    . $HOME/development/workspaces/ros/ri-robotics-shell/ri_robotics_shell.sh
+fi
+ri_source_ros
 
 # util functions
 # copy to clipbaord
 alias pbcopy='xclip -selection clipboard'
-
-function brws(){
-    if [ ! -f ./.catkin_workspace ]; then
-        ./catkin_make
-    fi
-}
-
-
-
-
-
+export LC_NUMERIC=en_US.UTF-8

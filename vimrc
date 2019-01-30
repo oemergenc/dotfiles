@@ -15,6 +15,8 @@ set shiftwidth=4          " Use indents of 4 spaces
 set encoding=utf-8
 set noshowmode            " Do not show native vim mode line at the bottom
 
+" Set <leader> to space
+:let mapleader = "\<Space>"
 " Custom Bindings for move line up/down
 nnoremap <A-j> :m .+1<CR>==
 nnoremap <A-k> :m .-2<CR>==
@@ -22,6 +24,10 @@ inoremap <A-j> <Esc>:m .+1<CR>==gi
 inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
+
+" insert new line with enter/shift-enter
+nmap <S-Enter> O<Esc> 
+nmap <CR> o<Esc>
 
 " make vim recognize alt key
 let c='a'

@@ -115,3 +115,4 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+export LC_NUMERIC=en_US.UTF-8

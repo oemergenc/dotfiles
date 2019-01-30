@@ -12,12 +12,12 @@
         "<C-a>": false,
         "<C-n>": false,
         "<C-f>": false,
+        "<C-k>": false,
         "<C-w>": false
     },
     "workbench.colorCustomizations": {
         "statusBar.background": "#005f5f",
         "statusBar.noFolderBackground": "#005f5f",
         "statusBar.debuggingBackground": "#005f5f"
-    },
-    "terminal.integrated.fontFamily": "monospace"
+    }
 }
