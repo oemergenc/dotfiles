@@ -1,5 +1,11 @@
 # dotfiles
 ```
+mkdir -p ~/fonts
+cd ~/fonts
+git clone https://github.com/powerline/fonts.git --depth=1
+./install.sh
+fc-cache -vf
+
 sudo apt-get install zsh git curl wget vim-gnome xclip tmux
 
 ln -s $HOME/.dotfiles/bashrc $HOME/.bashrc
