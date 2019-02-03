@@ -14,6 +14,8 @@ ln -s $HOME/.dotfiles/vimrc $HOME/.vimrc
 ln -s $HOME/.dotfiles/vim $HOME/.vim
 ln -s $HOME/.dotfiles/tmux.conf $HOME/.tmux.conf
 
+vim -c PlugInstall +qall
+
 cd $HOME/.zplug/repos/robbyrussell/oh-my-zsh/custom/plugins
 git clone https://github.com/zsh-users/zsh-autosuggestions
 
