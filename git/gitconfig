@@ -1,4 +1,3 @@
-[include]
-    path = ~/.dotfiles/git/work.gitconfig
-[includeIf "gitdir/i:github/"]
-    path = ~/.dotfiles/git/user.gitconfig
+[user]
+    name = Oemer genc 
+    email = oemer.genc@rewe-digital.com
