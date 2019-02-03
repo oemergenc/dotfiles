@@ -1,0 +1,5 @@
+[user]
+	name = Oemer Genc
+    email = oemer.genc@rewe-digital.com
+[includeIf "gitdir/i:oemergenc/"]
+    email = oemergenc@gmail.com
