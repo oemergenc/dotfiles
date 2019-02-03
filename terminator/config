@@ -23,8 +23,9 @@
     copy_on_selection = True
     cursor_color = "#aaaaaa"
     custom_command = tmux
-    font = PowerlineSymbols Medium 10
+    font = Source Code Pro for Powerline 10
     login_shell = True
     scrollback_infinite = True
     scrollback_lines = 526
     use_custom_command = True
+    use_system_font = False

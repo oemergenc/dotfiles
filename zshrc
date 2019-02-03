@@ -39,8 +39,7 @@ zplug load
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 POWERLEVEL9K_DISABLE_RPROMPT=true
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status dir vcs newline)
-
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status virtualenv dir vcs newline)
 ## history options
 
 HISTFILE="$HOME/.zhistory"
@@ -70,6 +69,5 @@ fi
 # util functions
 # copy to clipbaord
 alias pbcopy='xclip -selection clipboard'
-alias apio="source $HOME/.platformio/penv/bin/activate"
 alias uzshrc="source ~/.zshrc"
 export LC_NUMERIC=en_US.UTF-8
