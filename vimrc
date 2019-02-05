@@ -68,6 +68,7 @@ call plug#begin('~/.vim/plugged')
 " Plug 'itchyny/lightline.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'easymotion/vim-easymotion'
+Plug 'brooth/far.vim'
 call plug#end()
 
 " easy motion config

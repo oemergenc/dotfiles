@@ -20,6 +20,7 @@ zplug "rimraf/k"
 zplug "b4b4r07/enhancd", use:init.sh
 zplug 'plugins/git', from:oh-my-zsh
 zplug 'plugins/virtualenv', from:oh-my-zsh
+zplug 'plugins/docker-compose', from:oh-my-zsh
 zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
 zplug "momo-lab/zsh-abbrev-alias"
 
@@ -64,6 +65,9 @@ export RI_ROS_WS=~/development/workspaces/ri-ws
 if [ -f $HOME/development/workspaces/ros/ri-robotics-shell/ri_robotics_shell.sh ]; then
     . $HOME/development/workspaces/ros/ri-robotics-shell/ri_robotics_shell.sh
     ri_source_ros
+    if [ -f $HOME/development/workspaces/ri-ws/devel/setup.zsh ]; then
+        ri_source_devel
+    fi
 fi
 
 # util functions
