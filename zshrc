@@ -65,13 +65,12 @@ export RI_ROS_WS=~/development/workspaces/ri-ws
 if [ -f $HOME/development/workspaces/ros/ri-robotics-shell/ri_robotics_shell.sh ]; then
     . $HOME/development/workspaces/ros/ri-robotics-shell/ri_robotics_shell.sh
     ri_source_ros
-    if [ -f $HOME/development/workspaces/ri-ws/devel/setup.zsh ]; then
-        ri_source_devel
-    fi
 fi
 
 # util functions
 # copy to clipbaord
 alias pbcopy='xclip -selection clipboard'
 alias uzshrc="source ~/.zshrc"
+alias ezshrc="vim ~/.zshrc"
 export LC_NUMERIC=en_US.UTF-8
+export ARDUINO_HOME="/usr/local/apps/arduino-1.8.8"
