@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export TERM="xterm-256color"
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.zplug/repos/robbyrussell/oh-my-zsh
@@ -85,12 +86,12 @@ if [ -f $HOME/development/workspaces/ros/ri-robotics-shell/ri_robotics_shell.sh 
     ri_source_ros
 fi
 
-export TERM="xterm-256color"
-
 # util functions
-# copy to clipbaord
-alias pbcopy='xclip -selection clipboard'
+
+alias pbcopy='xclip -selection clipboard' # copy to clipbaord
 alias uzshrc="source ~/.zshrc"
+alias uz=uzshrc
 alias ezshrc="vim ~/.zshrc"
-export LC_NUMERIC=en_US.UTF-8
+alias ez=ezshrc
+export LC_NUMERIC=en_US.UTF-8 # needed for rviz to read floating point numbers correctly
 export ARDUINO_HOME="/usr/local/apps/arduino-1.8.8"

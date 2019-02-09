@@ -7,7 +7,7 @@ set wildmenu              " visual autocomplete for command menu
 set showmatch             " highlight matching [{()}]
 set incsearch             " search as characters are entered
 set hlsearch              " highlight matches
-set smartindent           " 
+set smartindent           "
 set tabstop=4             " An indentation every four columns
 set expandtab             " Tabs are spaces, not tabs
 set shiftwidth=4          " Use indents of 4 spaces
@@ -21,15 +21,15 @@ set smartcase
 " mapping of <C-L> below)
 set hlsearch
 hi Search ctermbg=LightYellow
-hi Search ctermfg=Red 
+hi Search ctermfg=Red
 
 " yank to clipboard with fix for mac os x
 if has("clipboard")
-  set clipboard=unnamed " copy to the system clipboard
+    set clipboard=unnamed " copy to the system clipboard
 
-  if has("unnamedplus") " X11 support
-    set clipboard+=unnamedplus
-  endif
+    if has("unnamedplus") " X11 support
+        set clipboard+=unnamedplus
+    endif
 endif
 
 " Set <leader> to space
@@ -43,15 +43,19 @@ vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
 " insert new line with enter/shift-enter
-nmap <S-Enter> O<Esc> 
+nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
+
+noremap <F3> :Autoformat<CR>
+inoremap <F3> Autoformat<CR>
+vnoremap <F3> :Autoformat<CR>
 
 " make vim recognize alt key
 let c='a'
 while c <= 'z'
     exec "set <A-".c.">=\e".c
     exec "imap \e".c." <A-".c.">"
-     let c = nr2char(1+char2nr(c))
+    let c = nr2char(1+char2nr(c))
 endw
 set timeout ttimeoutlen=50
 
@@ -59,13 +63,14 @@ set timeout ttimeoutlen=50
 " auto install vim-plug manager
 if empty(glob('~/.vim/autoload/plug.vim'))
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dir
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall --sync | source $HOME/.vimrc
 endif
 
 " install plugins
 call plug#begin('~/.vim/plugged')
 " Plug 'itchyny/lightline.vim'
+Plug 'Chiel92/vim-autoformat'
 Plug 'vim-airline/vim-airline'
 Plug 'easymotion/vim-easymotion'
 Plug 'brooth/far.vim'
@@ -90,15 +95,15 @@ map <Leader>k <Plug>(easymotion-k)
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
- 
+
 " Map <C-K> to highlight the word under the cursor
 nnoremap <C-K> :call HighlightNearCursor()<CR>
 function HighlightNearCursor()
-  if !exists("s:highlightcursor")
-    match Todo /\k*\%#\k*/
-    let s:highlightcursor=1
-  else
-    match None
-    unlet s:highlightcursor
-  endif
+    if !exists("s:highlightcursor")
+        match Todo /\k*\%#\k*/
+        let s:highlightcursor=1
+    else
+        match None
+        unlet s:highlightcursor
+    endif
 endfunction
