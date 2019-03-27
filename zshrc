@@ -70,31 +70,8 @@ setopt BANG_HIST                 # Treat the '!' character specially during expa
 setopt INC_APPEND_HISTORY        # Write to the history file immediately, not when the shell exits.
 setopt SHARE_HISTORY             # Share history between all sessions.
 
-## abbreviations
-abbrev-alias -i
-abbrev-alias -g gp="git push"
-abbrev-alias -g gs="git status"
-abbrev-alias -g gpa="git pull --all"
-abbrev-alias -g gacm="git add -A; git commit -m \"\""
-abbrev-alias -g gpa="git pull --all"
-
-# Ros
-export RI_ROS_WS=~/development/workspaces/ri-ws
-if [ -f $HOME/development/workspaces/ros/ri-robotics-shell/ri_robotics_shell.sh ]; then
-    . $HOME/development/workspaces/ros/ri-robotics-shell/ri_robotics_shell.sh
-    ri_source_ros
-    ri_source_devel
-fi
-
-# util functions
-
-alias pbcopy='xclip -selection clipboard' # copy to clipbaord
-alias uzshrc="source ~/.zshrc"
-alias uz=uzshrc
-alias ezshrc="vim ~/.zshrc"
-alias ez=ezshrc
-export LC_NUMERIC=en_US.UTF-8 # needed for rviz to read floating point numbers correctly
-export ARDUINO_HOME="/usr/local/apps/arduino-1.8.8"
+source $HOME/.dotfiles/env/env_ros.sh
+source $HOME/.dotfiles/aliases
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"

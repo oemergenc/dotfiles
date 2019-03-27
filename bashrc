@@ -115,7 +115,8 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-export LC_NUMERIC=en_US.UTF-8
+
+source $HOME/.dotfiles/aliases
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
