@@ -6,6 +6,10 @@ alias uzshrc="source ~/.zshrc"
 alias uz=uzshrc
 alias ezshrc="vim ~/.zshrc"
 alias ez=ezshrc
+alias ubashrc="source ~/.bashrc"
+alias ub=ubashrc
+alias ebashrc="vim ~/.bashrc"
+alias eb=ebashrc
 alias ealiases="vim $HOME/.dotfiles/aliases"
 alias ea=ealiases
 
