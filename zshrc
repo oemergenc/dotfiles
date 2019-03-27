@@ -17,7 +17,6 @@ zplug "zsh-users/zsh-completions"
 zplug "tarruda/zsh-autosuggestions",            defer:1
 zplug "zsh-users/zsh-syntax-highlighting",      defer:2
 zplug "zsh-users/zsh-history-substring-search", defer:3
-zplug "b4b4r07/enhancd", use:init.sh
 zplug 'plugins/git', from:oh-my-zsh
 zplug 'plugins/virtualenv', from:oh-my-zsh
 zplug 'plugins/docker-compose', from:oh-my-zsh
@@ -84,6 +83,7 @@ export RI_ROS_WS=~/development/workspaces/ri-ws
 if [ -f $HOME/development/workspaces/ros/ri-robotics-shell/ri_robotics_shell.sh ]; then
     . $HOME/development/workspaces/ros/ri-robotics-shell/ri_robotics_shell.sh
     ri_source_ros
+    ri_source_devel
 fi
 
 # util functions
@@ -95,3 +95,7 @@ alias ezshrc="vim ~/.zshrc"
 alias ez=ezshrc
 export LC_NUMERIC=en_US.UTF-8 # needed for rviz to read floating point numbers correctly
 export ARDUINO_HOME="/usr/local/apps/arduino-1.8.8"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
