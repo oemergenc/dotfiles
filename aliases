@@ -13,4 +13,6 @@ alias eb=ebashrc
 alias ealiases="vim $HOME/.dotfiles/aliases"
 alias ea=ealiases
 
+alias hfzf
 source $HOME/.dotfiles/alias/aliases_git.sh
+source $HOME/.dotfiles/alias/aliases_fzf.sh
