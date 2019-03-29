@@ -116,7 +116,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-source $HOME/.aliases/aliases
+source $HOME/.dot/aliases/aliases
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 

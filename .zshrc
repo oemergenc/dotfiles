@@ -21,7 +21,6 @@ zplug 'plugins/git', from:oh-my-zsh
 zplug 'plugins/virtualenv', from:oh-my-zsh
 zplug 'plugins/docker-compose', from:oh-my-zsh
 zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
-zplug "momo-lab/zsh-abbrev-alias"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -70,8 +69,8 @@ setopt BANG_HIST                 # Treat the '!' character specially during expa
 setopt INC_APPEND_HISTORY        # Write to the history file immediately, not when the shell exits.
 setopt SHARE_HISTORY             # Share history between all sessions.
 
-source $HOME/.env/env_ros.sh
-source $HOME/.aliases/aliases
+source $HOME/.dot/env/env_ros.sh
+source $HOME/.dot/aliases/aliases
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
