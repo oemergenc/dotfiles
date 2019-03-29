@@ -70,8 +70,8 @@ setopt BANG_HIST                 # Treat the '!' character specially during expa
 setopt INC_APPEND_HISTORY        # Write to the history file immediately, not when the shell exits.
 setopt SHARE_HISTORY             # Share history between all sessions.
 
-source $HOME/.dotfiles/env/env_ros.sh
-source $HOME/.dotfiles/aliases
+source $HOME/.env/env_ros.sh
+source $HOME/.aliases/aliases
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"

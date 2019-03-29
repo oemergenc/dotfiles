@@ -1,6 +1,10 @@
 # auto complete an alias in zsh Ctrl-x a
 # auto complete an alias in bash Ctrl-Alt e
 
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias ds='dotfiles status'
+alias dp='dotfiles push'
+
 alias pbcopy='xclip -selection clipboard'
 alias uzshrc="source ~/.zshrc"
 alias uz=uzshrc
@@ -10,8 +14,8 @@ alias ubashrc="source ~/.bashrc"
 alias ub=ubashrc
 alias ebashrc="vim ~/.bashrc"
 alias eb=ebashrc
-alias ealiases="vim $HOME/.dotfiles/aliases"
+alias ealiases="vim $HOME/.aliases/aliases"
 alias ea=ealiases
 
-source $HOME/.dotfiles/alias/aliases_git.sh
-source $HOME/.dotfiles/alias/aliases_fzf.sh
+source $HOME/.aliases/aliases_git.sh
+source $HOME/.aliases/aliases_fzf.sh
