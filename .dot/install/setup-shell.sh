@@ -7,4 +7,4 @@ curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/instal
 curl -s "https://get.sdkman.io" | zsh
 
 # SpaceVim
-curl -sLf https://spacevim.org/install.sh | zsh
+curl -sLf https://spacevim.org/install.sh | bash
