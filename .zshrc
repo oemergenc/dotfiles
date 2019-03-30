@@ -2,13 +2,6 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export TERM="xterm-256color"
 
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.zplug/repos/robbyrussell/oh-my-zsh
-# ZSH_THEME=agnoster
-
-fpath=(~/.zsh/completion $fpath)
-autoload -Uz compinit && compinit -i
-
 source ~/.zplug/init.zsh
 
 # Zplug plugins
@@ -21,9 +14,8 @@ zplug 'plugins/git', from:oh-my-zsh
 zplug 'plugins/virtualenv', from:oh-my-zsh
 zplug 'plugins/docker-compose', from:oh-my-zsh
 zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
-zplug "momo-lab/zsh-abbrev-alias"
-
-source $ZSH/oh-my-zsh.sh
+zplug "b4b4r07/git-open", as:command, at:patch-1
+zplug "junegunn/fzf", as:command, hook-build:"./install --all", use:"bin/{fzf-tmux,fzf}"
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
@@ -34,6 +26,15 @@ fi
 
 zplug load
 
+# Path to your oh-my-zsh installation.
+export ZSH=$HOME/.zplug/repos/robbyrussell/oh-my-zsh
+# ZSH_THEME=agnoster
+
+fpath=(~/.zsh/completion $fpath)
+autoload -Uz compinit && compinit -i
+
+source $ZSH/oh-my-zsh.sh
+
 if zplug check zsh-users/zsh-autosuggestions; then
     ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(history-substring-search-up history-substring-search-down)
     ZSH_AUTOSUGGEST_CLEAR_WIDGETS=("${(@)ZSH_AUTOSUGGEST_CLEAR_WIDGETS:#(up|down)-line-or-history}")
@@ -43,16 +44,6 @@ fi
 if zplug check zsh-users/zsh-history-substring-search; then
     bindkey '\eOA' history-substring-search-up
     bindkey '\eOB' history-substring-search-down
-fi
-
-# Install packages that have not been installed yet
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    else
-        echo
-    fi
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -70,8 +61,8 @@ setopt BANG_HIST                 # Treat the '!' character specially during expa
 setopt INC_APPEND_HISTORY        # Write to the history file immediately, not when the shell exits.
 setopt SHARE_HISTORY             # Share history between all sessions.
 
-source $HOME/.dotfiles/env/env_ros.sh
-source $HOME/.dotfiles/aliases
+source $HOME/.dot/env/env_ros.sh
+source $HOME/.dot/aliases/aliases
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
