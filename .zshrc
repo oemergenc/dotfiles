@@ -14,7 +14,8 @@ zplug 'plugins/git', from:oh-my-zsh
 zplug 'plugins/virtualenv', from:oh-my-zsh
 zplug 'plugins/docker-compose', from:oh-my-zsh
 zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
-
+zplug "b4b4r07/git-open", as:command, at:patch-1
+zplug "junegunn/fzf", as:command, hook-build:"./install --all", use:"bin/{fzf-tmux,fzf}"
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
