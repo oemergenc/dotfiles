@@ -1,0 +1,31 @@
+[global_config]
+  suppress_multiple_term_dialog = True
+[keybindings]
+  go_down = None
+  go_left = None
+  go_right = None
+  go_up = None
+  scaled_zoom = <Primary><Shift>z
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      profile = default
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    background_darkness = 0.9
+    background_type = transparent
+    copy_on_selection = True
+    cursor_color = "#aaaaaa"
+    custom_command = tmux
+    font = Source Code Pro for Powerline 10
+    login_shell = True
+    scrollback_infinite = True
+    scrollback_lines = 526
+    use_custom_command = True
+    use_system_font = False

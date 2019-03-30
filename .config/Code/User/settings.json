@@ -1,0 +1,25 @@
+{
+    "breadcrumbs.enabled": true,
+    "vim.easymotion": true,
+    "vim.statusBarColorControl": true,
+    "vim.sneak": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.leader": "<space>",
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-n>": false,
+        "<C-f>": false,
+        "<C-k>": false,
+        "<C-w>": false
+    },
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#005f5f",
+        "statusBar.noFolderBackground": "#005f5f",
+        "statusBar.debuggingBackground": "#005f5f"
+    },
+    "terminal.integrated.fontFamily": "Source Code Pro for Powerline",
+    "terminal.integrated.fontSize": 11
+}
