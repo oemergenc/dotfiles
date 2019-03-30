@@ -1,26 +1,11 @@
-# dotfiles
+# my dotfiles
 ```
-mkdir -p ~/fonts
-cd ~/fonts
-git clone https://github.com/powerline/fonts.git --depth=1
-./install.sh
-fc-cache -vf
 
-sudo apt-get install zsh git curl wget vim-gnome xclip tmux
+git clone --branch feature/bare-git --separate-git-dir=$HOME/.dotfiles https://github.com/oemergenc/dotfiles.git $HOME/tmpdotfiles
 
-ln -s $HOME/.dotfiles/bashrc $HOME/.bashrc
-ln -s $HOME/.dotfiles/zshrc $HOME/.zshrc
-ln -s $HOME/.dotfiles/vimrc $HOME/.vimrc
-ln -s $HOME/.dotfiles/vim $HOME/.vim
-ln -s $HOME/.dotfiles/tmux.conf $HOME/.tmux.conf
+chmod +x $HOME/tmpdotfiles/.dot/install/setup-dotfiles.sh
+$HOME/tmpdotfiles/.dot/install/setup-dotfiles.sh
 
-vim -c PlugInstall +qall
-
-cd $HOME/.zplug/repos/robbyrussell/oh-my-zsh/custom/plugins
-git clone https://github.com/zsh-users/zsh-autosuggestions
-
-git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
-tmux source $HOME/.tmux.conf
-
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+chmod +x $HOME/.dot/install/setup-shell.sh
+$HOME/.dot/install/setup-shell.sh
 ```
