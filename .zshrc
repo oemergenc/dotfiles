@@ -2,13 +2,6 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export TERM="xterm-256color"
 
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.zplug/repos/robbyrussell/oh-my-zsh
-# ZSH_THEME=agnoster
-
-fpath=(~/.zsh/completion $fpath)
-autoload -Uz compinit && compinit -i
-
 source ~/.zplug/init.zsh
 
 # Zplug plugins
@@ -22,7 +15,6 @@ zplug 'plugins/virtualenv', from:oh-my-zsh
 zplug 'plugins/docker-compose', from:oh-my-zsh
 zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
 
-source $ZSH/oh-my-zsh.sh
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
@@ -33,6 +25,15 @@ fi
 
 zplug load
 
+# Path to your oh-my-zsh installation.
+export ZSH=$HOME/.zplug/repos/robbyrussell/oh-my-zsh
+# ZSH_THEME=agnoster
+
+fpath=(~/.zsh/completion $fpath)
+autoload -Uz compinit && compinit -i
+
+source $ZSH/oh-my-zsh.sh
+
 if zplug check zsh-users/zsh-autosuggestions; then
     ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(history-substring-search-up history-substring-search-down)
     ZSH_AUTOSUGGEST_CLEAR_WIDGETS=("${(@)ZSH_AUTOSUGGEST_CLEAR_WIDGETS:#(up|down)-line-or-history}")
@@ -42,16 +43,6 @@ fi
 if zplug check zsh-users/zsh-history-substring-search; then
     bindkey '\eOA' history-substring-search-up
     bindkey '\eOB' history-substring-search-down
-fi
-
-# Install packages that have not been installed yet
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    else
-        echo
-    fi
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
