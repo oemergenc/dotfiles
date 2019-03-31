@@ -49,7 +49,7 @@ fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 POWERLEVEL9K_DISABLE_RPROMPT=true
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status virtualenv dir vcs newline)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(kubecontext status virtualenv dir vcs newline)
 ## history options
 
 HISTFILE="$HOME/.zhistory"
