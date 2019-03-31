@@ -1,6 +1,13 @@
-[user]
-    name = Oemer genc 
+[github]
+    name = Oemer Genc
+    email = oemergenc@gmail.com
+[stash]
+    name = Oemer Genc
     email = oemer.genc@rewe-digital.com
+[init]
+    templatedir = ~/.git-templates
+[user]
+    useConfigOnly = true
 
 [merge]
     tool = intellij

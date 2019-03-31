@@ -20,4 +20,6 @@ alias ealiases="vim $HOME/.dot/aliases/aliases"
 alias ea=ealiases
 
 source $HOME/.dot/aliases/aliases_git.sh
+alias eag='vim $HOME/.dot/aliases/aliases_git.sh'
 source $HOME/.dot/aliases/aliases_fzf.sh
+alias eaf='vim $HOME/.dot/aliases/aliases_fzf.sh'
