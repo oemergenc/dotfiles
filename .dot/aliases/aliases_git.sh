@@ -13,7 +13,8 @@ function git-clean-branches ()
 
 function ggf()
 {
-    while true
+    while true; 
+    do
         clear
         git log --max-count=50 --graph --topo-order --decorate --oneline --all --pretty=format:"%Cgreen%h%Creset - %Cblue%an%Creset @ %ai : %s"
         sleep 2
