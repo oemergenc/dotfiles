@@ -1,9 +1,3 @@
-alias gp="git push"
-alias gs="git status"
-alias gpa="git pull --all"
-alias gaucm="git add -u; git commit -m \"\""
-alias gaacm="git add -A; git commit -m \"\""
-
 function git-clean-branches ()
 {
     git fetch --prune
@@ -20,3 +14,11 @@ function ggf()
         sleep 2
     done 
 }
+
+alias gp="git push"
+alias gs="git status"
+alias gpa="git pull --all"
+alias gaucm="git add -u; git commit -m \"\""
+alias gaacm="git add -A; git commit -m \"\""
+alias gbl="git branch -l"
+alias gclb="git-clean-branches"
