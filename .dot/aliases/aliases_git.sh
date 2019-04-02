@@ -17,7 +17,7 @@ function ggf()
 
 alias gp="git push"
 alias gs="git status"
-alias gpa="git pull --all"
+alias gpla="git pull --all"
 alias gaucm="git add -u; git commit -m \"\""
 alias gaacm="git add -A; git commit -m \"\""
 alias gbl="git branch -l"
