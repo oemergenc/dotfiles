@@ -6,10 +6,12 @@ source ~/.zplug/init.zsh
 
 # Zplug plugins
 zplug "zplug/zplug"
-zplug 'plugins/git', from:oh-my-zsh
-zplug 'plugins/virtualenv', from:oh-my-zsh
-zplug 'plugins/docker', from:oh-my-zsh
-zplug 'plugins/docker-compose', from:oh-my-zsh
+zplug 'plugins/git',              from:oh-my-zsh
+zplug 'plugins/virtualenv',       from:oh-my-zsh
+zplug 'plugins/docker',           from:oh-my-zsh
+zplug 'plugins/docker-compose',   from:oh-my-zsh
+zplug "plugins/kubectl",          from:oh-my-zsh
+zplug "plugins/vagrant",          from:oh-my-zsh
 zplug "zsh-users/zsh-completions"
 zplug "tarruda/zsh-autosuggestions",            defer:1
 zplug "zsh-users/zsh-syntax-highlighting",      defer:2
