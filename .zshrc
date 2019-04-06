@@ -10,8 +10,8 @@ zplug 'plugins/git',              from:oh-my-zsh
 zplug 'plugins/virtualenv',       from:oh-my-zsh
 zplug 'plugins/docker',           from:oh-my-zsh
 zplug 'plugins/docker-compose',   from:oh-my-zsh
-zplug "plugins/kubectl",          from:oh-my-zsh
 zplug "plugins/vagrant",          from:oh-my-zsh
+zplug "nnao45/zsh-kubectl-completion"
 zplug "zsh-users/zsh-completions"
 zplug "tarruda/zsh-autosuggestions",            defer:1
 zplug "zsh-users/zsh-syntax-highlighting",      defer:2
@@ -32,7 +32,6 @@ zplug load
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.zplug/repos/robbyrussell/oh-my-zsh
-# ZSH_THEME=agnoster
 
 fpath=(~/.zsh/completion $fpath)
 
@@ -58,8 +57,8 @@ POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status virtualenv dir vcs newline)
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
 POWERLEVEL9K_SHORTEN_DELIMITER=""
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
-# history options
 
+# history options
 HISTFILE="$HOME/.zhistory"
 HISTSIZE=10000000
 SAVEHIST=10000000
