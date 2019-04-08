@@ -24,3 +24,5 @@ source $HOME/.dot/aliases/aliases_git.sh
 alias eag='vim $HOME/.dot/aliases/aliases_git.sh'
 source $HOME/.dot/aliases/aliases_fzf.sh
 alias eaf='vim $HOME/.dot/aliases/aliases_fzf.sh'
+source $HOME/.dot/aliases/aliases_kubectl.sh
+alias eak='vim $HOME/.dot/aliases/aliases_kubectl.sh'

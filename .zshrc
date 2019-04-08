@@ -11,7 +11,6 @@ zplug 'plugins/virtualenv',       from:oh-my-zsh
 zplug 'plugins/docker',           from:oh-my-zsh
 zplug 'plugins/docker-compose',   from:oh-my-zsh
 zplug "plugins/vagrant",          from:oh-my-zsh
-zplug "nnao45/zsh-kubectl-completion"
 zplug "zsh-users/zsh-completions"
 zplug "tarruda/zsh-autosuggestions",            defer:1
 zplug "zsh-users/zsh-syntax-highlighting",      defer:2
@@ -51,8 +50,14 @@ fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # POWERLEVEL9K Setup
+function get_kube_context(){
+  rd_kube_context=$(grep "current-context" $HOME/.kube/config | sed s/gke_//g | sed s/_europe-west1-c_bigdata//g | sed s/"current-context: "//g)
+  echo $rd_kube_context
+}
+POWERLEVEL9K_CUSTOM_KUBE_CONTEXT="get_kube_context"
+POWERLEVEL9K_CUSTOM_KUBE_CONTEXT_BACKGROUND="green"
 POWERLEVEL9K_DISABLE_RPROMPT=true
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status virtualenv dir vcs newline)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status custom_kube_context virtualenv dir vcs newline)
 ## Fish style path truncation behavior 
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
 POWERLEVEL9K_SHORTEN_DELIMITER=""
@@ -70,6 +75,8 @@ setopt SHARE_HISTORY             # Share history between all sessions.
 
 source $HOME/.dot/env/env_ros.sh
 source $HOME/.dot/aliases/aliases
+
+source <(kubectl completion zsh)
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
