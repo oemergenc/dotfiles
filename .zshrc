@@ -19,7 +19,7 @@ zplug "matthieusb/zsh-sdkman", use:zsh-sdkman.plugin
 zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
 zplug "b4b4r07/git-open", as:command, at:patch-1
 zplug "junegunn/fzf", as:command, hook-build:"./install --all", use:"bin/{fzf-tmux,fzf}"
-zplug "kubermatic/fubectl", use:"fubectl.source"
+zplug "ninrod/gradle-zsh-completion", use:gradle-zsh-completion.plugin.zsh
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
@@ -49,6 +49,7 @@ if zplug check zsh-users/zsh-history-substring-search; then
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.iterm2_shell_integration.zsh ] && source ~/.iterm2_shell_integration.zsh
 
 # POWERLEVEL9K Setup
 function get_kube_context(){
