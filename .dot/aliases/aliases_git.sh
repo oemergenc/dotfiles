@@ -1,4 +1,4 @@
-function git-clean-branches ()
+function git-clean-branches()
 {
     git fetch --prune
     git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}' | xargs git branch -d

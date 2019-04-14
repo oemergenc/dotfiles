@@ -64,7 +64,11 @@ POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status custom_kube_context virtualenv dir vcs
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
 POWERLEVEL9K_SHORTEN_DELIMITER=""
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
-
+## Branch shorten strategy
+POWERLEVEL9K_VCS_SHORTEN_LENGTH=18
+POWERLEVEL9K_VCS_SHORTEN_MIN_LENGTH=11
+POWERLEVEL9K_VCS_SHORTEN_STRATEGY="truncate_from_right"
+POWERLEVEL9K_VCS_SHORTEN_DELIMITER=".."
 # history options
 HISTFILE="$HOME/.zhistory"
 HISTSIZE=10000000
@@ -76,6 +80,7 @@ setopt INC_APPEND_HISTORY        # Write to the history file immediately, not wh
 setopt SHARE_HISTORY             # Share history between all sessions.
 
 source $HOME/.dot/env/env_ros.sh
+source $HOME/.dot/env/env_helm.sh
 source $HOME/.dot/aliases/aliases
 
 source <(kubectl completion zsh)
