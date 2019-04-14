@@ -31,6 +31,6 @@ case `uname` in
     source $HOME/.dot/aliases/aliases_darwin.sh
   ;;
   Linux)
-    # Linx
-# ;;
+    source $HOME/.dot/aliases/aliases_linux.sh
+  ;;
 esac
