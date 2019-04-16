@@ -8,3 +8,15 @@ alias kgs='kubectl get services'
 alias kgd='kubectl get deployments'
 alias kgi='kubectl get ingress'
 alias klf='kubectl logs --tail=50000 --follow' 
+
+function omm-jenkins-restart(){
+  omm-ops
+  echo -n  "Press enter to continue or CTRL-C to abort"
+  read var_name
+  kubectl --namespace omm delete pod sparks-jenkins-0
+}
+
+function omm-jenkins-log(){
+  omm-ops
+  kubectl --namespace omm logs -f sparks-jenkins-0
+}
