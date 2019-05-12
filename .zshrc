@@ -102,8 +102,6 @@ source $HOME/.dot/env/env_ros.sh
 source $HOME/.dot/env/env_helm.sh
 source $HOME/.dot/aliases/aliases
 
-source <(kubectl completion zsh)
-
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

@@ -9,6 +9,14 @@ alias kgd='kubectl get deployments'
 alias kgi='kubectl get ingress'
 alias klf='kubectl logs --tail=50000 --follow' 
 
+function kubectl() {
+    if ! type __start_kubectl >/dev/null 2>&1; then
+        source <(command kubectl completion zsh)
+    fi
+
+    command kubectl "$@"
+}
+
 function omm-jenkins-restart(){
   omm-ops
   echo -n  "Press enter to continue or CTRL-C to abort"
