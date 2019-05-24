@@ -18,6 +18,7 @@ alias ebashrc="vim ~/.bashrc"
 alias eb=ebashrc
 alias ealiases="vim $HOME/.dot/aliases/aliases"
 alias ea=ealiases
+alias vp="pbpaste | vim -"
 
 source $HOME/.dot/aliases/aliases_git.sh
 alias eag='vim $HOME/.dot/aliases/aliases_git.sh'
