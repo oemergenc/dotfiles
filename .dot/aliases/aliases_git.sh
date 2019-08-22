@@ -18,9 +18,9 @@ function ggf()
 fcoc() 
 {
   local commits commit
-  commits=$(git log --pretty=oneline --abbrev-commit --reverse) &&
+  commits=$(git log --pretty=format:"%Cgreen%h%Creset%x09%Cblue%an%Creset%x09%ad%x09%s" --reverse)
   commit=$(echo "$commits" | fzf --tac +s +m -e) &&
-  git checkout $(echo "$commit" | sed "s/ .*//")
+  git checkout $(echo "$commit" | awk '{print $1}')
 }
 
 fbr() 

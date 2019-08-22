@@ -1,5 +1,3 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
 export TERM="xterm-256color"
 
 source ~/.zplug/init.zsh
@@ -11,15 +9,15 @@ zplug 'plugins/virtualenv',       from:oh-my-zsh
 zplug 'plugins/docker',           from:oh-my-zsh
 zplug 'plugins/docker-compose',   from:oh-my-zsh
 zplug "plugins/vagrant",          from:oh-my-zsh
+zplug "plugins/vi-mode",          from:oh-my-zsh
 zplug "zsh-users/zsh-completions"
 zplug "tarruda/zsh-autosuggestions",            defer:1
 zplug "zsh-users/zsh-syntax-highlighting",      defer:2
 zplug "zsh-users/zsh-history-substring-search", defer:3
 zplug "matthieusb/zsh-sdkman", use:zsh-sdkman.plugin
-zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
+zplug "romkatv/powerlevel10k, use:powerlevel10k.zsh-theme"
 zplug "b4b4r07/git-open", as:command, at:patch-1
 zplug "junegunn/fzf", as:command, hook-build:"./install --all", use:"bin/{fzf-tmux,fzf}"
-zplug "ninrod/gradle-zsh-completion", use:gradle-zsh-completion.plugin.zsh
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
@@ -37,11 +35,13 @@ fpath=(~/.zsh/completion $fpath)
 
 source $ZSH/oh-my-zsh.sh
 
-if zplug check zsh-users/zsh-autosuggestions; then
+set -o vi
+
+if zplug check tarruda/zsh-autosuggestions; then
     ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(history-substring-search-up history-substring-search-down)
     ZSH_AUTOSUGGEST_CLEAR_WIDGETS=("${(@)ZSH_AUTOSUGGEST_CLEAR_WIDGETS:#(up|down)-line-or-history}")
+    bindkey '^ ' autosuggest-accept
 fi
-
 
 if zplug check zsh-users/zsh-history-substring-search; then
     bindkey '\eOA' history-substring-search-up
@@ -61,7 +61,7 @@ POWERLEVEL9K_CUSTOM_KUBE_CONTEXT_BOLD=true
 POWERLEVEL9K_CUSTOM_KUBE_CONTEXT_BACKGROUND="green4"
 POWERLEVEL9K_CUSTOM_KUBE_CONTEXT_FOREGROUND="white"
 POWERLEVEL9K_DISABLE_RPROMPT=true
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status custom_kube_context virtualenv dir vcs newline)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status vi_mode custom_kube_context virtualenv dir vcs newline)
 ## Fish style path truncation behavior 
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
 POWERLEVEL9K_SHORTEN_DELIMITER=""
@@ -87,7 +87,13 @@ POWERLEVEL9K_DIR_HOME_BACKGROUND='grey23'
 POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND='grey23'
 POWERLEVEL9K_DIR_ETC_BACKGROUND='grey23'
 POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='grey23'
-
+# Vi-Mode
+POWERLEVEL9K_VI_MODE_INSERT_FOREGROUND='black'
+POWERLEVEL9K_VI_MODE_INSERT_BACKGROUND='green'
+POWERLEVEL9K_VI_MODE_NORMAL_FOREGROUND='black'
+POWERLEVEL9K_VI_MODE_NORMAL_BACKGROUND='blue'
+POWERLEVEL9K_VI_INSERT_MODE_STRING="I"
+POWERLEVEL9K_VI_COMMAND_MODE_STRING="N"
 # history options
 HISTFILE="$HOME/.zhistory"
 HISTSIZE=10000000
@@ -106,4 +112,14 @@ source $HOME/.dot/aliases/aliases
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-autoload -Uz compinit ; compinit
+#autoload -Uz compinit ; compinit
+autoload -Uz compinit
+for dump in ~/.zcompdump(N.mh+24); do
+  compinit
+done
+compinit -C
+
+eval "$(rbenv init -)"
+export PATH=$HOME/.rbenv/versions/2.6.2/bin/:$PATH
+
+export LC_ALL=en_US.UTF-8

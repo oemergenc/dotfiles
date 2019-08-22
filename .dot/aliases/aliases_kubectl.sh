@@ -8,6 +8,7 @@ alias kgs='kubectl get services'
 alias kgd='kubectl get deployments'
 alias kgi='kubectl get ingress'
 alias klf='kubectl logs --tail=50000 --follow' 
+alias kge='kubectl get events' 
 
 function kubectl() {
   if ! type __start_kubectl >/dev/null 2>&1; then

@@ -1,4 +1,7 @@
 set relativenumber
+set showmode
+set surround
+set commentary
 
 noremap <Up> <NOP>
 noremap <Down> <NOP>
@@ -7,3 +10,57 @@ noremap <Right> <NOP>
 
 noremap w [w
 noremap b ]b
+
+" nnoremap <A-j> :m .+1<CR>==
+" nnoremap <A-k> :m .-2<CR>==
+" inoremap <A-j> <Esc>:m .+1<CR>==gi
+" inoremap <A-k> <Esc>:m .-2<CR>==gi
+" vnoremap <A-j> :m '>+1<CR>gv=gv
+" vnoremap <A-k> :m '<-2<CR>gv=gv
+
+imap <C-n> <ESC>:action HippieCompletion<CR>a
+imap <C-p> <ESC>:action HippieBackwardCompletion<CR>a
+
+imap jj <Esc>
+
+let mapleader = " "
+map <leader>a :action $SelectAll<CR>
+map <leader>b :action GotoDeclaration<CR>
+map <leader>c :action $Copy<CR>
+map <leader>d :action EditorDuplicate<CR>
+map <leader>e :action RecentFiles<CR>
+map <leader>f :action Find<CR>
+map <leader>g :action GotoLine<CR>
+map <leader>h :action TypeHierarchy<CR>
+map <leader>i :action ImplementMethods<CR>
+map <leader>m :action EditorScrollToCenter<CR>
+map <leader>n :action FileChooser.NewFolder<CR>
+map <leader>o :action OverrideMethods<CR>
+map <leader>p :action ParameterInfo<CR>
+map <leader>q :action GuiDesigner.QuickJavadoc<CR>
+map <leader>r :action Replace<CR>
+map <leader>s :action SaveAll<CR>
+map <leader>t :action Vcs.UpdateProject<CR>
+map <leader>u :action GotoSuperMethod<CR>
+map <leader>v :action $Paste<CR>
+map <leader>w :action EditorSelectWord<CR>
+map <leader>x :action $Cut<CR>
+map <leader>y :action EditorDeleteLine<CR>
+map <leader>[ :action EditorCodeBlockStart<CR>
+map <leader>] :action EditorCodeBlockEnd<CR>
+map <leader>dd :action Debug<CR>
+map <leader>cd :action ChooseDebugConfiguration<CR>
+map <leader>rr :action Run<CR>
+map <leader>cr :action ChooseRunConfiguration<CR>
+
+map <A-j> :action MoveLineDown<CR>
+map <A-k> :action MoveLineUp<CR>
+map <A-j> :action MoveLineDown<CR>
+map <A-k> :action MoveLineUp<CR>
+map <A-j> :action MoveLineDown<CR>
+map <A-k> :action MoveLineUp<CR>
+
+nmap <leader>jc :action KJumpAction<cr>
+nmap <leader>jw :action KJumpAction.Word0<cr>
+nmap <leader>js :action KJumpAction.Word1<cr>
+nmap <leader>jl :action KJumpAction.Line<cr>

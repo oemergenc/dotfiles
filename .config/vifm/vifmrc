@@ -339,7 +339,7 @@ set vifminfo=dhistory,savedirs,chistory,state,tui,shistory,
 " Sample mappings
 
 " Start shell in current directory
-nnoremap s :shell<cr>
+" nnoremap s :shell<cr>
 
 " Display sorting dialog
 nnoremap S :sort<cr>
@@ -445,3 +445,5 @@ nnoremap <c-N> :mkdir<Space>
 nnoremap <c-F> :touch<Space>
 nnoremap <c-U> :sync<cr>
 nnoremap O :!idea %f<cr>
+
+nnoremap ,h :history<cr>:write ~/test<cr>q:execute 'cd "'.system('fzf < ~/test 2>/dev/tty').'"'<cr>
