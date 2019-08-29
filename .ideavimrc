@@ -55,10 +55,6 @@ map <leader>cr :action ChooseRunConfiguration<CR>
 
 map <A-j> :action MoveLineDown<CR>
 map <A-k> :action MoveLineUp<CR>
-map <A-j> :action MoveLineDown<CR>
-map <A-k> :action MoveLineUp<CR>
-map <A-j> :action MoveLineDown<CR>
-map <A-k> :action MoveLineUp<CR>
 
 nmap <leader>jc :action KJumpAction<cr>
 nmap <leader>jw :action KJumpAction.Word0<cr>
