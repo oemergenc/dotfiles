@@ -21,3 +21,4 @@
     cmd = /usr/local/bin/idea diff $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") $(cd $(dirname "$REMOTE") && pwd)/$(basename "$REMOTE")
 [core]
 	excludesfile = /Users/omer.genc/.gitignore
+	pager = diff-so-fancy | less --tabs=4 -RFX

@@ -29,3 +29,4 @@ fcd() {
      fi
   fi
 }
+alias fvim='vim $(fzf)'

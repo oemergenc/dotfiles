@@ -2,6 +2,7 @@ set relativenumber
 set showmode
 set surround
 set commentary
+set ideajoin
 
 noremap <Up> <NOP>
 noremap <Down> <NOP>
@@ -30,7 +31,7 @@ map <leader>c :action $Copy<CR>
 map <leader>d :action EditorDuplicate<CR>
 map <leader>e :action RecentFiles<CR>
 map <leader>f :action Find<CR>
-map <leader>g :action GotoLine<CR>
+" map <leader>g :action GotoLine<CR>
 map <leader>h :action TypeHierarchy<CR>
 map <leader>i :action ImplementMethods<CR>
 map <leader>m :action EditorScrollToCenter<CR>
@@ -38,7 +39,7 @@ map <leader>n :action FileChooser.NewFolder<CR>
 map <leader>o :action OverrideMethods<CR>
 map <leader>p :action ParameterInfo<CR>
 map <leader>q :action GuiDesigner.QuickJavadoc<CR>
-map <leader>r :action Replace<CR>
+" map <leader>r :action Replace<CR>
 map <leader>s :action SaveAll<CR>
 map <leader>t :action Vcs.UpdateProject<CR>
 map <leader>u :action GotoSuperMethod<CR>
@@ -52,6 +53,23 @@ map <leader>dd :action Debug<CR>
 map <leader>cd :action ChooseDebugConfiguration<CR>
 map <leader>rr :action Run<CR>
 map <leader>cr :action ChooseRunConfiguration<CR>
+map <leader>r :action RenameElement<CR>
+map <leader>g :action Generate<CR>
+
+nnoremap ,e :action SearchEverywhere<CR>
+nnoremap ,g :action FindInPath<CR>
+nnoremap ,s :action FileStructurePopup<CR>
+
+nnoremap gs :action GotoSuperMethod<CR>
+nnoremap gi :action GotoImplementation<CR>
+nnoremap gb :action JumpToLastChange<CR>
+
+nnoremap U :action FindUsages<CR>
+nnoremap K :action RenameElement<CR>
+nnoremap L $
+nnoremap H ^
+vnoremap L $
+vnoremap H ^
 
 map <A-j> :action MoveLineDown<CR>
 map <A-k> :action MoveLineUp<CR>

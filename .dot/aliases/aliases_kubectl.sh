@@ -28,3 +28,7 @@ function omm-jenkins-log(){
   omm-ops
   kubectl --namespace omm logs -f sparks-jenkins-0
 }
+
+function copypod(){
+    findpod | tail -1 | awk '{print $1}' | pbcopy
+}

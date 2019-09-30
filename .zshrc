@@ -4,7 +4,6 @@ source ~/.zplug/init.zsh
 
 # Zplug plugins
 zplug "zplug/zplug"
-zplug 'plugins/git',              from:oh-my-zsh
 zplug 'plugins/virtualenv',       from:oh-my-zsh
 zplug 'plugins/docker',           from:oh-my-zsh
 zplug 'plugins/docker-compose',   from:oh-my-zsh
@@ -15,9 +14,12 @@ zplug "tarruda/zsh-autosuggestions",            defer:1
 zplug "zsh-users/zsh-syntax-highlighting",      defer:2
 zplug "zsh-users/zsh-history-substring-search", defer:3
 zplug "matthieusb/zsh-sdkman", use:zsh-sdkman.plugin
-zplug "romkatv/powerlevel10k, use:powerlevel10k.zsh-theme"
+zplug "romkatv/powerlevel10k", as:theme
 zplug "b4b4r07/git-open", as:command, at:patch-1
 zplug "junegunn/fzf", as:command, hook-build:"./install --all", use:"bin/{fzf-tmux,fzf}"
+zplug 'wfxr/forgit'
+zplug "zdharma/zsh-diff-so-fancy", as:command, use:bin/diff-so-fancy
+zplug "mnowotnik/docker-fzf-completion", use:"docker-fzf-completion.plugin.zsh"
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
@@ -50,50 +52,6 @@ fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.iterm2_shell_integration.zsh ] && source ~/.iterm2_shell_integration.zsh
-
-# POWERLEVEL9K Setup
-function get_kube_context(){
-  rd_kube_context=$(grep "current-context" $HOME/.kube/config | sed s/gke_//g | sed s/_europe-west1-c_bigdata//g | sed s/"current-context: "//g)
-  echo $rd_kube_context
-}
-POWERLEVEL9K_CUSTOM_KUBE_CONTEXT="get_kube_context"
-POWERLEVEL9K_CUSTOM_KUBE_CONTEXT_BOLD=true
-POWERLEVEL9K_CUSTOM_KUBE_CONTEXT_BACKGROUND="green4"
-POWERLEVEL9K_CUSTOM_KUBE_CONTEXT_FOREGROUND="white"
-POWERLEVEL9K_DISABLE_RPROMPT=true
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status vi_mode custom_kube_context virtualenv dir vcs newline)
-## Fish style path truncation behavior 
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
-POWERLEVEL9K_SHORTEN_DELIMITER=""
-POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
-## Branch shorten strategy
-POWERLEVEL9K_VCS_SHORTEN_LENGTH=18
-POWERLEVEL9K_VCS_SHORTEN_MIN_LENGTH=11
-POWERLEVEL9K_VCS_SHORTEN_STRATEGY="truncate_from_right"
-POWERLEVEL9K_VCS_SHORTEN_DELIMITER=".."
-# `vcs` color customization
-POWERLEVEL9K_VCS_CLEAN_FOREGROUND='black'
-POWERLEVEL9K_VCS_CLEAN_BACKGROUND='green'
-POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='black'
-POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='yellow'
-POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='white'
-POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='red1'
-# `dir` color customization
-POWERLEVEL9K_DIR_HOME_FOREGROUND='white'
-POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND='white'
-POWERLEVEL9K_DIR_ETC_FOREGROUND='white'
-POWERLEVEL9K_DIR_DEFAULT_FOREGROUND='white'
-POWERLEVEL9K_DIR_HOME_BACKGROUND='grey23'
-POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND='grey23'
-POWERLEVEL9K_DIR_ETC_BACKGROUND='grey23'
-POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='grey23'
-# Vi-Mode
-POWERLEVEL9K_VI_MODE_INSERT_FOREGROUND='black'
-POWERLEVEL9K_VI_MODE_INSERT_BACKGROUND='green'
-POWERLEVEL9K_VI_MODE_NORMAL_FOREGROUND='black'
-POWERLEVEL9K_VI_MODE_NORMAL_BACKGROUND='blue'
-POWERLEVEL9K_VI_INSERT_MODE_STRING="I"
-POWERLEVEL9K_VI_COMMAND_MODE_STRING="N"
 # history options
 HISTFILE="$HOME/.zhistory"
 HISTSIZE=10000000
@@ -123,3 +81,12 @@ eval "$(rbenv init -)"
 export PATH=$HOME/.rbenv/versions/2.6.2/bin/:$PATH
 
 export LC_ALL=en_US.UTF-8
+
+# fish-like completion list search
+zmodload zsh/complist
+zstyle ':completion:*' menu yes select
+bindkey -M menuselect '?' history-incremental-search-forward
+source <(helm completion zsh)
+
+# POWERLEVEL9K Setup
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
