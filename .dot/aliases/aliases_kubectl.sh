@@ -1,7 +1,7 @@
-alias omm-prd='kubectl config use-context gke_rd-bigdata-prd-v002_europe-west1-c_bigdata --namespace=omm'
-alias omm-int='kubectl config use-context gke_rd-bigdata-int-v002_europe-west1-c_bigdata --namespace=omm'
-alias omm-ops='kubectl config use-context gke_rd-bigdata-ops-v002_europe-west1-c_bigdata --namespace=omm'
-alias omm-local='kubectl config use-context docker-for-desktop --namespace=omm'
+alias omm-prd='kubectx gke_rd-bigdata-prd-v002_europe-west1-c_bigdata; kubens omm'
+alias omm-int='kubectx gke_rd-bigdata-int-v002_europe-west1-c_bigdata; kubens omm'
+alias omm-ops='kubectx gke_rd-bigdata-ops-v002_europe-west1-c_bigdata; kubens omm'
+alias omm-local='kubectx docker-for-desktop; kubens omm'
 
 alias kgp='kubectl get pods'
 alias kgs='kubectl get services'
@@ -9,6 +9,8 @@ alias kgd='kubectl get deployments'
 alias kgi='kubectl get ingress'
 alias klf='kubectl logs --tail=50000 --follow' 
 alias kge='kubectl get events' 
+alias kns='kubens' 
+alias kctx='kubectx' 
 
 function kubectl() {
   if ! type __start_kubectl >/dev/null 2>&1; then

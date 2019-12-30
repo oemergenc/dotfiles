@@ -1,9 +1,11 @@
 export TERM="xterm-256color"
+ZSH_TMUX_AUTOSTART=true
 
 source ~/.zplug/init.zsh
 
 # Zplug plugins
 zplug "zplug/zplug"
+zplug 'plugins/tmux',             from:oh-my-zsh
 zplug 'plugins/virtualenv',       from:oh-my-zsh
 zplug 'plugins/docker',           from:oh-my-zsh
 zplug 'plugins/docker-compose',   from:oh-my-zsh
@@ -79,6 +81,9 @@ compinit -C
 
 eval "$(rbenv init -)"
 export PATH=$HOME/.rbenv/versions/2.6.2/bin/:$PATH
+#
+# krew kubectl plugin manager
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 export LC_ALL=en_US.UTF-8
 
