@@ -79,8 +79,10 @@ for dump in ~/.zcompdump(N.mh+24); do
 done
 compinit -C
 
-eval "$(rbenv init -)"
-export PATH=$HOME/.rbenv/versions/2.6.2/bin/:$PATH
+if [ -x "$(command -v rbenv)" ]; then
+  eval "$(rbenv init -)"
+  export PATH=$HOME/.rbenv/versions/2.6.2/bin/:$PATH
+fi
 #
 # krew kubectl plugin manager
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
@@ -91,7 +93,10 @@ export LC_ALL=en_US.UTF-8
 zmodload zsh/complist
 zstyle ':completion:*' menu yes select
 bindkey -M menuselect '?' history-incremental-search-forward
-source <(helm completion zsh)
+
+if [ -x "$(command -v helm)" ]; then
+  source <(helm completion zsh)
+fi
 
 # POWERLEVEL9K Setup
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
