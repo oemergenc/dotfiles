@@ -12,25 +12,19 @@ noremap <Right> <NOP>
 noremap w [w
 noremap b ]b
 
-" nnoremap <A-j> :m .+1<CR>==
-" nnoremap <A-k> :m .-2<CR>==
-" inoremap <A-j> <Esc>:m .+1<CR>==gi
-" inoremap <A-k> <Esc>:m .-2<CR>==gi
-" vnoremap <A-j> :m '>+1<CR>gv=gv
-" vnoremap <A-k> :m '<-2<CR>gv=gv
-
 imap <C-n> <ESC>:action HippieCompletion<CR>a
 imap <C-p> <ESC>:action HippieBackwardCompletion<CR>a
 
 imap jj <Esc>
 
 let mapleader = " "
+set easymotion
 map <leader>a :action $SelectAll<CR>
 map <leader>b :action GotoDeclaration<CR>
 map <leader>c :action $Copy<CR>
 map <leader>d :action EditorDuplicate<CR>
 map <leader>e :action RecentFiles<CR>
-map <leader>f :action Find<CR>
+" map <leader>f :action Find<CR>
 " map <leader>g :action GotoLine<CR>
 map <leader>h :action TypeHierarchy<CR>
 map <leader>i :action ImplementMethods<CR>
@@ -74,7 +68,20 @@ vnoremap H ^
 map <A-j> :action MoveLineDown<CR>
 map <A-k> :action MoveLineUp<CR>
 
-nmap <leader>jc :action KJumpAction<cr>
-nmap <leader>jw :action KJumpAction.Word0<cr>
-nmap <leader>js :action KJumpAction.Word1<cr>
-nmap <leader>jl :action KJumpAction.Line<cr>
+" nmap <leader>jc :action KJumpAction<cr>
+" nmap <leader>jw :action KJumpAction.Word0<cr>
+" nmap <leader>js :action KJumpAction.Word1<cr>
+" nmap <leader>jl :action KJumpAction.Line<cr>
+
+" acejump config
+" nmap <leader>jc :action AceAction<CR>
+" nmap <leader>jw :action AceTargetAction<CR>
+" nmap <leader>jl :action AceLineAction<CR>
+
+map <leader><leader>l <Plug>(easymotion-lineforward)
+map <leader><leader>j <Plug>(easymotion-j)
+map <leader><leader>k <Plug>(easymotion-k)
+map <leader><leader>h <Plug>(easymotion-linebackward)
+map <leader><leader>q <Plug>(easymotion-jumptoanywhere)
+map <leader><leader>w <Plug>(easymotion-bd-w)
+

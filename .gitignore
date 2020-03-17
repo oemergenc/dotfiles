@@ -6,3 +6,5 @@ vim/.netrwhist
 vim/autoload
 vim/plugged
 .dotfiles
+secring.*
+*.gpg
