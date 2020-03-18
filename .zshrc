@@ -70,12 +70,12 @@ source $HOME/.dot/aliases/aliases
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-autoload -Uz compinit ; compinit
-autoload -Uz compinit
-for dump in ~/.zcompdump(N.mh+24); do
-  compinit
-done
-compinit -C
+# autoload -Uz compinit ; compinit
+# autoload -Uz compinit
+# for dump in ~/.zcompdump(N.mh+24); do
+#   compinit
+# done
+# compinit -C
 
 if [ -x "$(command -v rbenv)" ]; then
   eval "$(rbenv init -)"
@@ -86,11 +86,6 @@ fi
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 export LC_ALL=en_US.UTF-8
-
-# # fish-like completion list search
-# zmodload zsh/complist
-# zstyle ':completion:*' menu yes select
-# bindkey -M menuselect '?' history-incremental-search-forward
 
 if [ -x "$(command -v helm)" ]; then
   source <(helm completion zsh)
