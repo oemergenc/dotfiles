@@ -19,6 +19,8 @@ alias ealiases="vim $HOME/.dot/aliases/aliases"
 alias ea=ealiases
 alias vp="pbpaste | vim -"
 alias lzd="lazydocker"
+alias lg="lazygit"
+alias lj="lazyjira"
 
 alias hh="helm tiller run omm -- helm"
 alias hr="helm tiller run omm --"
@@ -32,7 +34,9 @@ alias eaf='vim $HOME/.dot/aliases/aliases_fzf.sh'
 source $HOME/.dot/aliases/aliases_kubectl.sh
 alias eak='vim $HOME/.dot/aliases/aliases_kubectl.sh'
 source $HOME/.dot/aliases/aliases_helm.sh
-alias eak='vim $HOME/.dot/aliases/aliases_helm.sh'
+alias eah='vim $HOME/.dot/aliases/aliases_helm.sh'
+source $HOME/.dot/aliases/aliases_kafka.sh
+alias eakaf='vim $HOME/.dot/aliases/aliases_kafka.sh'
 
 case `uname` in
   Darwin)

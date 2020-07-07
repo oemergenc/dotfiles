@@ -746,7 +746,7 @@
   typeset -g POWERLEVEL9K_EXAMPLE_VISUAL_IDENTIFIER_EXPANSION='${P9K_VISUAL_IDENTIFIER}'
 
   typeset -g POWERLEVEL9K_DISABLE_RPROMPT=true
-  typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status kubecontext virtualenv dir vcs newline vi_mode prompt_char)
+  typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status virtualenv dir vcs newline vi_mode prompt_char)
   ## Fish style path truncation behavior
   typeset -g POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
   typeset -g POWERLEVEL9K_SHORTEN_DELIMITER=""
