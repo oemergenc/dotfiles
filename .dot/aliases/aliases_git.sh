@@ -113,3 +113,4 @@ alias gaa="git add --all"
 alias gau="git add -u"
 alias gcm="git checkout master"
 alias gcmsg='git commit -m'
+alias gco='forgit::restore'

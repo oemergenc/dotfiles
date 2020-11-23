@@ -21,11 +21,20 @@ alias vp="pbpaste | vim -"
 alias lzd="lazydocker"
 alias lg="lazygit"
 alias lj="lazyjira"
+alias jv="java -version"
 
 alias hh="helm tiller run omm -- helm"
 alias hr="helm tiller run omm --"
 alias ht="helm tiller start"
 alias hts="helm tiller stop"
+
+alias cbt-int="cbt -project rd-bigdata-int-v002 -instance plat-ca-1"
+alias cbt-prd="cbt -project rd-bigdata-prd-v002 -instance omm-europe-west1"
+cbt-local() {
+   export BIGTABLE_EMULATOR_HOST=127.0.0.1:8086 
+   cbt -project irrelevant -instance irrelevant $@
+   unset BIGTABLE_EMULATOR_HOST
+}
 
 source $HOME/.dot/aliases/aliases_git.sh
 alias eag='vim $HOME/.dot/aliases/aliases_git.sh'

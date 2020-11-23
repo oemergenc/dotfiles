@@ -85,8 +85,5 @@ export PATH=$GOBIN:$PATH
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
-[[ -f ~/.jira.d/_complete_tickets ]] && eval "$(cat ~/.jira.d/_complete_tickets)"
 
 source ~/.zplug/repos/Aloxaf/fzf-tab/fzf-tab.plugin.zsh
-
-source /Users/omer.genc/.config/broot/launcher/bash/br
