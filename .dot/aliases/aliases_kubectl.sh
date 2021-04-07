@@ -1,6 +1,11 @@
 alias omm-prd='kubectx gke_rd-bigdata-prd-v002_europe-west1-c_bigdata; kubens omm;'
 alias omm-int='kubectx gke_rd-bigdata-int-v002_europe-west1-c_bigdata; kubens omm'
 alias omm-ops='kubectx gke_rd-bigdata-ops-v002_europe-west1-c_bigdata; kubens omm'
+alias ffp-dev='picker dev'
+alias ffp-int='picker int'
+alias ffp-prd='picker prd'
+alias ffp-core-int='picker intcore'
+alias ffp-core-prd='picker prdcore'
 alias ai-sbx='kubectx gke_rd-team-sparks-sbx_europe-west1-c_cluster-1; kubens default'
 alias omm-local='kubectx docker-for-desktop; kubens omm'
 

@@ -1,3 +1,5 @@
+set relativenumber
+set number
 set showmode
 set surround
 set commentary
@@ -8,6 +10,7 @@ set argtextobj
 set multiple-cursors
 set exchange
 set highlightedyank
+set NERDTree
 
 noremap <Up> <NOP>
 noremap <Down> <NOP>
@@ -56,6 +59,7 @@ map <leader>rr :action Run<CR>
 map <leader>cr :action ChooseRunConfiguration<CR>
 map <leader>r :action RenameElement<CR>
 map <leader>g :action Generate<CR>
+" map <leader>g :action NERDTree<CR>
 
 nnoremap ,e :action SearchEverywhere<CR>
 nnoremap ,g :action FindInPath<CR>
@@ -81,6 +85,9 @@ map <leader><leader>k <Plug>(easymotion-k)
 map <leader><leader>h <Plug>(easymotion-linebackward)
 map <leader><leader>q <Plug>(easymotion-jumptoanywhere)
 map <leader><leader>w <Plug>(easymotion-bd-w)
+
+map <leader>ft :NERDTreeToggle<CR>
+map <leader>ff :NERDTreeFind<CR>
 
 " remap multiple cursors default keymaps
 " map <C-N>  <A-N>

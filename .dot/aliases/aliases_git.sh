@@ -112,5 +112,7 @@ alias gst="git stash"
 alias gaa="git add --all"
 alias gau="git add -u"
 alias gcm="git checkout master"
+alias gcma="git checkout main"
+alias gmastertomain='git branch -m master main; git fetch origin; git branch -u origin/main main'
 alias gcmsg='git commit -m'
 alias gco='forgit::restore'

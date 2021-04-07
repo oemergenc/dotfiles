@@ -10,6 +10,7 @@
     useConfigOnly = true
 	name = Oemer Genc
 	email = oemergenc@gmail.com
+	signingkey = B7EED0E62468E11D
 
 [merge]
 	tool = intellij
@@ -31,3 +32,5 @@
 	required = true
 [pull]
 	rebase = false
+[commit]
+	gpgsign = true

@@ -30,7 +30,7 @@ zplug load
 export ZSH=$HOME/.zplug/repos/robbyrussell/oh-my-zsh
 
 # source completions
-#fpath=(~/.zsh/completion $fpath)
+fpath=(~/.zsh/completion $fpath)
 
 # source oh-my-zsh
 source $ZSH/oh-my-zsh.sh
@@ -53,8 +53,10 @@ if zplug check zsh-users/zsh-history-substring-search; then
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=1
 [ -f ~/.iterm2_shell_integration.zsh ] && source ~/.iterm2_shell_integration.zsh
+#
 # history options
 HISTFILE="$HOME/.zhistory"
 HISTSIZE=10000000
@@ -64,6 +66,7 @@ unsetopt histverify              # Do not verify expansion cmds
 setopt BANG_HIST                 # Treat the '!' character specially during expansion.
 setopt INC_APPEND_HISTORY        # Write to the history file immediately, not when the shell exits.
 setopt SHARE_HISTORY             # Share history between all sessions.
+setopt globdots                  # Show hidden files on tab completion
 
 source $HOME/.dot/env/env_ros.sh
 source $HOME/.dot/env/env_helm.sh
@@ -71,19 +74,29 @@ source $HOME/.dot/aliases/aliases
 
 export LC_ALL=en_US.UTF-8
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+##THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-export NVM_DIR="$HOME/.nvm"
+# export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+if [ -s "$HOME/.nvm/nvm.sh" ]; then
+    export NVM_DIR="$HOME/.nvm"
+    nvm_cmds=(nvm node npm yarn)
+    for cmd in $nvm_cmds ; do
+        alias $cmd="unalias $nvm_cmds && unset nvm_cmds && . $NVM_DIR/nvm.sh && $cmd"
+    done
+fi
 
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
-export PATH=$GOBIN:$PATH
+export PATH=.:$GOBIN:$PATH
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
 source ~/.zplug/repos/Aloxaf/fzf-tab/fzf-tab.plugin.zsh
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/terraform terraform
