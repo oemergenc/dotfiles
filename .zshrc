@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 export TERM="xterm-256color"
 if [ "$TERMINAL_EMULATOR" != "JetBrains-JediTerm" ]
 then
@@ -72,22 +79,23 @@ source $HOME/.dot/env/env_ros.sh
 source $HOME/.dot/env/env_helm.sh
 source $HOME/.dot/aliases/aliases
 
-export LC_ALL=en_US.UTF-8
+export LC_ALL="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
 
 ##THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-# export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-if [ -s "$HOME/.nvm/nvm.sh" ]; then
-    export NVM_DIR="$HOME/.nvm"
-    nvm_cmds=(nvm node npm yarn)
-    for cmd in $nvm_cmds ; do
-        alias $cmd="unalias $nvm_cmds && unset nvm_cmds && . $NVM_DIR/nvm.sh && $cmd"
-    done
-fi
+#export NVM_DIR="$HOME/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#if [ -s "$HOME/.nvm/nvm.sh" ]; then
+#    export NVM_DIR="$HOME/.nvm"
+#    nvm_cmds=(nvm node npm yarn ng)
+#    for cmd in $nvm_cmds ; do
+#        alias $cmd="unalias $nvm_cmds && unset nvm_cmds && . $NVM_DIR/nvm.sh && $cmd"
+#    done
+#fi
 
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
@@ -100,3 +108,13 @@ source ~/.zplug/repos/Aloxaf/fzf-tab/fzf-tab.plugin.zsh
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
+
+# tabtab source for packages
+# uninstall by removing these lines
+[[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
+
+eval "$(rbenv init -)"
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/omergenc/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

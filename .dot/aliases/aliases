@@ -24,10 +24,29 @@ alias lj="lazyjira"
 alias jv="java -version"
 alias docker-stop-and-remove-all='docker container stop $(docker container ls -aq); docker container rm $(docker container ls -aq)'
 
+alias gcloud-prd='gcloud config configurations activate rewedigital-refill-prd-v001'
+alias gprd=gcloud-prd
+alias gcloud-int='gcloud config configurations activate rewedigital-refill-int-v001'
+alias gint=gcloud-int
+alias gcloud-dev='gcloud config configurations activate rd-ffp-dev-v002'
+alias gdev=gcloud-dev
+alias gcloud-ml-prd='gcloud config configurations activate rd-ffp-ml-prd'
+alias gmlprd=gcloud-ml-prd
+alias gcloud-ml-int='gcloud config configurations activate rd-ffp-ml-int'
+alias gmlint=gcloud-ml-int
+alias gcloud-ml-dev='gcloud config configurations activate rd-ffp-ml-dev'
+alias gmldev=gcloud-ml-dev
+alias gcloud-eng='gcloud config configurations activate rd-analytics-data-eng-dev'
+alias geng=gcloud-eng
+alias dbearer="jwt decode -j $(pbpaste) | jq"
+alias daccess='jwt decode -j $(pbpaste | jq -r ".access_token" ) | jq -r'
+
 alias hh="helm tiller run omm -- helm"
 alias hr="helm tiller run omm --"
 alias ht="helm tiller start"
 alias hts="helm tiller stop"
+
+alias python="python3"
 
 alias cbt-int="cbt -project rd-bigdata-int-v002 -instance plat-ca-1"
 alias cbt-prd="cbt -project rd-bigdata-prd-v002 -instance omm-europe-west1"

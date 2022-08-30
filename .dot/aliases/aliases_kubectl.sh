@@ -1,13 +1,12 @@
-alias omm-prd='kubectx gke_rd-bigdata-prd-v002_europe-west1-c_bigdata; kubens omm;'
-alias omm-int='kubectx gke_rd-bigdata-int-v002_europe-west1-c_bigdata; kubens omm'
-alias omm-ops='kubectx gke_rd-bigdata-ops-v002_europe-west1-c_bigdata; kubens omm'
-alias ffp-dev='picker dev'
-alias ffp-int='picker int'
-alias ffp-prd='picker prd'
+alias ffp-dev='kctx gke_rd-ffp-dev-v002_europe-west1_kubernetes'
+alias dev-name='echo -n rd-ffp-dev-v002|pbcopy'
+alias ffp-int='kctx gke_rewedigital-refill-int-v001_europe-west1_kubernetes2'
+alias int-name='echo -n rewedigital-refill-int-v001|pbcopy'
+alias ffp-prd='kctx gke_rewedigital-refill-prd-v001_europe-west1_kubernetes2'
+alias data-test='kctx gke_rd-analytics-data-eng-dev-348d_europe-west1_data-engineering'
+alias prd-name='echo -n rewedigital-refill-prd-v001|pbcopy'
 alias ffp-core-int='picker intcore'
 alias ffp-core-prd='picker prdcore'
-alias ai-sbx='kubectx gke_rd-team-sparks-sbx_europe-west1-c_cluster-1; kubens default'
-alias omm-local='kubectx docker-for-desktop; kubens omm'
 
 alias g='gcloud'
 alias k='kubectl'
@@ -33,34 +32,6 @@ function kubectl() {
       source <(command kubectl completion zsh)
   fi
   command kubectl "$@"
-}
-
-function microk8sstart(){
-     microk8s start
-     alias kubectl='microk8s.kubectl'
-}
-
-function microk8sstop(){
-     microk8s stop
-     unalias kubectl
-}
-
-function set_kube_context_var() {
-  # local theContext = "${grep "current-context" $HOME/.kube/config | sed s/gke_//g | sed s/_europe-west1-c_bigdata//g | sed s/current-context:\w{1}//g | sed s/current-context:\ //g}"
-  # local theContext = "rd-bigdata-int"
-  iterm2_set_user_var kubeContext "naskxjnask"
-}
-
-function omm-jenkins-restart(){
-  omm-ops
-  echo -n  "Press enter to continue or CTRL-C to abort"
-  read var_name
-  kubectl --namespace omm delete pod sparks-jenkins-0
-}
-
-function omm-jenkins-log(){
-  omm-ops
-  kubectl --namespace omm logs -f sparks-jenkins-0
 }
 
 function copypod(){
