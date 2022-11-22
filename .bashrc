@@ -133,5 +133,5 @@ source "$HOME/.cargo/env"
 . "$HOME/.cargo/env"
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/omergenc/.rd/bin:$PATH"
+export PATH="/Users/oemer.genc/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

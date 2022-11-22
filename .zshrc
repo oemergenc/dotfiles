@@ -96,6 +96,10 @@ export SDKMAN_DIR="$HOME/.sdkman"
 #        alias $cmd="unalias $nvm_cmds && unset nvm_cmds && . $NVM_DIR/nvm.sh && $cmd"
 #    done
 #fi
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
 
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
@@ -116,5 +120,5 @@ complete -o nospace -C /usr/local/bin/terraform terraform
 eval "$(rbenv init -)"
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/omergenc/.rd/bin:$PATH"
+export PATH="/Users/oemer.genc/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

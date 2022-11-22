@@ -68,12 +68,3 @@ source $HOME/.dot/aliases/aliases_kafka.sh
 alias eakaf='vim $HOME/.dot/aliases/aliases_kafka.sh'
 source $HOME/.dot/aliases/aliases_team.sh
 alias eat='vim $HOME/.dot/aliases/aliases_team.sh'
-
-case `uname` in
-  Darwin)
-    source $HOME/.dot/aliases/aliases_darwin.sh
-  ;;
-  Linux)
-    source $HOME/.dot/aliases/aliases_linux.sh
-  ;;
-esac
